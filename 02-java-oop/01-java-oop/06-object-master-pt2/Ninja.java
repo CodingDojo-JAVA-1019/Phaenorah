@@ -4,8 +4,9 @@ public class Ninja extends Human {
         super();
         this.stealth = 10;        
     }
-    public void stealHuman(){
-        this.health = this.health - this.stealth;
+    public void stealHuman(Human h){
+        h.health = h.health - this.stealth;
+        this.health = this.health + h.health;
         System.out.println("Hey you sneaky ninja " + this.health);
     }
     public void runAway(){

@@ -13,8 +13,8 @@ public class Human{
     public Human(int level) {
         this.health = level;
     }   
-    public void attack(Human) {
-        this.health = this.health - this.strength;
+    public void attack(Human h) {
+        h.health = h.health - this.strength;
         System.out.println("Attacked!!!! Ouch that hurt!!: " + this.health);
     }
 }

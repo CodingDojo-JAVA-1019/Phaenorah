@@ -5,12 +5,12 @@ public class Wizard extends Human {
         this.health = 50;
         this.intelligence = 8; 
     }
-    public void healHuman(){
-        this.health = this.health + this.intelligence;
+    public void heal(Human h){
+        h.health = h.health + this.intelligence;
         System.out.println("You are healed!!! " + this.health);
     }
-    public void fireBall(){
-        this.health = this.health - (3 * this.intelligence);
+    public void fireBall(Human h){
+        h.health = h.health - (3 * this.intelligence);
         System.out.println("fire fire!!! " + this.health);
     }
 
