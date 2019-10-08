@@ -1,0 +1,19 @@
+@charset "UTF-8";
+.container{
+      display: block
+}
+
+h1{
+	text-align: center;
+}
+.box{
+       width: 40px;
+       height:40px;
+       display: inline-block;
+}
+.blue{
+    background: blue;
+}
+.red{
+    background: red;
+}
