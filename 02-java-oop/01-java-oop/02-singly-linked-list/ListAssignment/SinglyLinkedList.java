@@ -17,29 +17,29 @@ public class SinglyLinkedList {
         }
     }   
     public void remove() {
-        Node current = head; 
+        Node runner = head; 
         if(head == null) {
             return;
         }
-        if(current.next == null) {
+        if(runner.next == null) {
             head = null;
             return;
         }
-        while(current.next.next !=null) {
-            current = current.next;
+        while(runner.next.next !=null) {
+            runner = runner.next;
         }
-        current.next = null;
+        runner.next = null;
     }
     public void printValues() {
         if(head == null) {
             return;
         }
-        Node current = head;
-        while(current != null) {
-            System.out.println(current.value + ",");
+        Node runner = head;
+        while(runner != null) {
+            System.out.println(runner.value + ",");
 
-            current = current.next;
+            runner = runner.next;
         }
-        System.out.print(current);
+        System.out.print(runner);
     } 
 }
