@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+.container{
+	background-color:plum;
+    width: 970px;
+    height: 600px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 2px solid black; 
+    text-align: center; 
+    padding-top: 250px;    
+}
+.date{
+	width: 450px;
+    text-align: left;
+    display: inline-block;
+    text-align: center;      
+}
+.time{
+	width: 450px;
+    text-align: left;
+    display: inline-block;  
+    text-align: center;   
+}
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
