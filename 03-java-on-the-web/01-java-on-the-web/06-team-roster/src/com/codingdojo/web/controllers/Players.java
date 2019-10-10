@@ -8,19 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.codingdojo.web.models.Player;
 
 /**
- * Servlet implementation class Counter
+ * Servlet implementation class Players
  */
-@WebServlet("/Counter")
-public class Counter extends HttpServlet {
+@WebServlet("/Players")
+public class Players extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Counter() {
+    public Players() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,33 +31,26 @@ public class Counter extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		Integer count = (Integer) session.getAttribute("count");
-		
-		if (count == null) {
-			count = 0;
-			count++;
-			session.setAttribute("count", count);
-		} else {
-			count++;
-			session.setAttribute("count", count);
-		}
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/counter.jsp");
-		view.forward(request, response);
-	}
+		String first_name = request.getParameter("first_name");
+		String last_name = request.getParameter("last_name");
+        int age = Integer.parseInt(request.getParameter("age"));
+
+        // Create model
+        Player player = new Player(first_name, last_name, age);
+
+        // Set Model for view
+        request.setAttribute("player", player);
+        // Let view handle the request
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/AddPlayer.jsp");
+        view.forward(request, response);
+    }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		HttpSession session = request.getSession();
-		Integer count = (Integer) session.getAttribute("count");
-		
-		session.setAttribute("count", count++);
-		
 		doGet(request, response);
 	}
 

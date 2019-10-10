@@ -8,19 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import com.codingdojo.web.models.Team;
 
 /**
- * Servlet implementation class Counter
+ * Servlet implementation class Teams
  */
-@WebServlet("/Counter")
-public class Counter extends HttpServlet {
+@WebServlet("/Teams")
+public class Teams extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Counter() {
+    public Teams() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,20 +31,17 @@ public class Counter extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		Integer count = (Integer) session.getAttribute("count");
+		String team_name = request.getParameter("team_name");
+		String players = request.getParameter("players");
 		
-		if (count == null) {
-			count = 0;
-			count++;
-			session.setAttribute("count", count);
-		} else {
-			count++;
-			session.setAttribute("count", count);
-		}
-		
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/counter.jsp");
-		view.forward(request, response);
+		// Create model
+        Team team = new Team(team_name, players);
+
+        // Set Model for view
+        request.setAttribute("team", team);
+        // Let view handle the request
+        RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/NewTeam.jsp");
+        view.forward(request, response);
 	}
 
 	/**
@@ -51,12 +49,6 @@ public class Counter extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		HttpSession session = request.getSession();
-		Integer count = (Integer) session.getAttribute("count");
-		
-		session.setAttribute("count", count++);
-		
 		doGet(request, response);
 	}
 
