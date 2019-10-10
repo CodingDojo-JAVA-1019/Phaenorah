@@ -9,16 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HumanController {	
 	@RequestMapping("/")
-	public String index(@RequestParam(value= "name", required= false) String name, Model model) {
-		
+	public String index(@RequestParam(value= "name", required= false, defaultValue="Human") String name, Model model) {
+//		if(name == null) {
+//			name = "Human";
+//		}
 		model.addAttribute("name", name);
-		
-		if(name != null ) {				
-			return "index.jsp"; 
-			
-		} else {
-			return "hello.html";
-		}		
+		return "index.jsp"; 
 	}
 
 }
