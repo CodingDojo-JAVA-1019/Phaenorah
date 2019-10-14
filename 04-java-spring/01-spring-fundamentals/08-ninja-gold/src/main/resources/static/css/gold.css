@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+.container{
+ background-color:purple;
+ width: 970px;
+ height: 800px;
+ margin: 0px auto;
+ padding: 20px;
+ border: 2px solid black;
+}
+.blue{
+ background-color:#bdbdbf;
+ height: 200px;
+ display: inline-block;
+ width: 220px;
+ border: 2px solid black;
+ margin-bottom: 20px;
+ text-align: center;
+}
+.win{
+background-color:#bdbdbf;
+height: 400px;
+color:green;
+}
